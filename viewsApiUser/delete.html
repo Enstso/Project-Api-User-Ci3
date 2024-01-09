@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Your Form</title>
+  </head>
+  <body class="p-4">
+    <div class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
+      <form id="form_delete">
+        <div class="mb-4">
+          <label for="id" class="block text-gray-600 text-sm font-semibold mb-2"
+            >ID</label
+          >
+          <select name="ids" id="ids-delete">
+            <option value="" disabled selected>Select ID</option>
+          </select>
+        </div>
+
+        <div class="mb-6">
+          <button
+            type="submit"
+            class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script src="./index.js"></script>
+</html>
