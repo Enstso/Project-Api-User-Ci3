@@ -54,10 +54,8 @@ class Api_user extends CI_Controller
             $data['data'] = [];
             return $this->response($data);
         }
-        $data['message'] = "success";
-        $data['status'] = "ok";
-        $data['code'] = 200;
-        $data['data'] = [];
+
+        $data['code'] = 204;
         return $this->response($data);
     }
 
@@ -80,7 +78,7 @@ class Api_user extends CI_Controller
 
     public function updateUser()
     {
-        $request = json_decode($this->input->raw_input_stream,true);
+        $request = json_decode($this->input->raw_input_stream, true);
         $id_user = $request['id'];
         $firstname = $request['firstname'];
         $lastname = $request['lastname'];
@@ -94,22 +92,21 @@ class Api_user extends CI_Controller
             $data['data'] = $request;
             return $this->response($data);
         }
-        $data['message'] = "success";
-        $data['status'] = "ok";
-        $data['code'] = 200;
-        $data['data'] = $request;
+
+        $data['code'] = 204;
+
         return $this->response($data);
     }
 
 
     public function createUser()
     {
-        $request = json_decode($this->input->raw_input_stream,true);
+        $request = json_decode($this->input->raw_input_stream, true);
         $firstname = $request['firstname'];
         $lastname = $request['lastname'];
         $email = $request['email'];
 
-       $this->User_model->insert_user($firstname, $lastname, $email);
+        $this->User_model->insert_user($firstname, $lastname, $email);
         if ($this->db->affected_rows() == 0) {
             $data['message'] = "request failed";
             $data['status'] = "ko";
@@ -122,6 +119,5 @@ class Api_user extends CI_Controller
         $data['code'] = 201;
         $data['data'] = $request;
         return $this->response($data);
-
     }
 }
